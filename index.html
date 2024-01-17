@@ -9,4 +9,31 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Open+Sans:wght@300;40
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700;800&family=Rubik:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="quiz-box">
+            <h1 class="title">QUIZ</h1>
+            <div class="separator"></div>
+            <p id="question">What method is used to select all elements with the class "nested" inside an element with
+                the
+                ID "parent"?</p>
+
+            <button id="answer1">document.getElements('.nested', '#parent')</button>
+            <button id="answer2">document.getElementById("parent").getElementsByClassName("nested")</button>
+            <button id="answer3">document.select('.nested', '#parent')</button>
+            <button id="answer4">document.getElementById('parent').find('.nested')</button>
+
+            <button id="button">NEXT</button>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>
