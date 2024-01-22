@@ -67,67 +67,158 @@ const questionList = [
   }),
   (questionFour = {
     question:
-      '4 How can you select an element with the ID "myElement" in JavaScript?',
+      "Which method is used to create a new HTML element in JavaScript?",
     answers: [
       (a = {
-        content: "getElement('myElement')",
+        content: "document.newElement('div')",
         correct: false,
       }),
       (b = {
-        content: "document.getElementByName('myElement')",
+        content: "document.create('div')",
         correct: false,
       }),
       (c = {
-        content: "document.getElementById('myElement')",
+        content: "document.createElement('div')",
         correct: true,
       }),
       (d = {
-        content: "selectElement('myElement')",
+        content: "document.add('div')",
         correct: false,
       }),
     ],
   }),
   (questionFive = {
     question:
-      "5 What method is used to retrieve the text content of an element in the DOM?",
+      'How can you change the background colour of an element with the class "box" using JavaScript?',
     answers: [
       (a = {
-        content: "element.textContent",
-        correct: true,
-      }),
-      (b = {
-        content: "element.innerText",
+        content: "document.getElement('.box').style.backgroundColor = 'red'",
         correct: false,
       }),
+      (b = {
+        content:
+          "elemedocument.getElementByClassName('box').style.background = 'red'nt.innerText",
+        correct: true,
+      }),
       (c = {
-        content: "element.text",
+        content: "document.getStyle('.box').background = 'red'",
         correct: false,
       }),
       (d = {
-        content: "element.innerHTML",
+        content: "document.querySelector('.box').changeBackground('red')",
         correct: false,
       }),
     ],
   }),
   (questionSix = {
     question:
-      '6 How do you attach a click event listener to an element with the ID "button"?',
+      'What method is used to select all elements with the tag name "p" in JavaScript?',
     answers: [
       (a = {
-        content: "button.addEventListener('click', myFunction)",
-        correct: true,
+        content: "document.getElementsByTag('p')",
+        correct: false,
       }),
       (b = {
-        content: "button.attachEvent('onclick', myFunction)",
+        content: "document.find('p')",
         correct: false,
       }),
       (c = {
-        content: "button.on('click', myFunction)",
+        content: "document.select('p')",
         correct: false,
       }),
       (d = {
-        content: "button.click(myFunction)",
+        content: "document.getElementsByTagName('p')",
+        correct: true,
+      }),
+    ],
+  }),
+  (questionSeven = {
+    question:
+      'How can you execute a function called "myFunction" every 2 seconds in JavaScript?',
+    answers: [
+      (a = {
+        content: "setInterval(myFunction, 2000)",
         correct: false,
+      }),
+      (b = {
+        content: "setTimeout(myFunction, 2000)",
+        correct: true,
+      }),
+      (c = {
+        content: "repeatEvery(2000, myFunction)",
+        correct: false,
+      }),
+      (d = {
+        content: "executeEvery(2000, myFunction)",
+        correct: false,
+      }),
+    ],
+  }),
+  (questionEight = {
+    question:
+      'What method is used to select all elements with the class "nested" inside an element with the ID "parent"?',
+    answers: [
+      (a = {
+        content: "document.getElements('.nested', '#parent')",
+        correct: false,
+      }),
+      (b = {
+        content:
+          "document.getElementById('parent').getElementsByClassName('nested')",
+        correct: true,
+      }),
+      (c = {
+        content: "document.select('.nested', '#parent')",
+        correct: false,
+      }),
+      (d = {
+        content: "document.getElementById('parent').find('.nested')",
+        correct: false,
+      }),
+    ],
+  }),
+  (questionNine = {
+    question:
+      'How can you add a CSS class "highlight" to an element with the ID "myElement" using JavaScript?',
+    answers: [
+      (a = {
+        content: "document.getElementById('myElement').addClass('highlight')",
+        correct: false,
+      }),
+      (b = {
+        content:
+          "document.querySelector('#myElement').classList.add('highlight')",
+        correct: true,
+      }),
+      (c = {
+        content: "document.setStyle('#myElement', 'highlight')",
+        correct: false,
+      }),
+      (d = {
+        content: "document.querySelector('#myElement').style.add('highlight')",
+        correct: false,
+      }),
+    ],
+  }),
+  (questionTen = {
+    question:
+      'What method is used to remove an HTML element with the ID "toBeRemoved" from the DOM?',
+    answers: [
+      (a = {
+        content: "document.removeElement('#toBeRemoved')",
+        correct: false,
+      }),
+      (b = {
+        content: "document.querySelector('#toBeRemoved').delete()",
+        correct: false,
+      }),
+      (c = {
+        content: "document.delete('#toBeRemoved')",
+        correct: false,
+      }),
+      (d = {
+        content: "document.getElementById('toBeRemoved').remove()",
+        correct: true,
       }),
     ],
   }),
