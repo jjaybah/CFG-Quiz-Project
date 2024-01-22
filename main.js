@@ -158,10 +158,10 @@ function validateAnswer(userAnswer, button) {
   if (isCorrect) {
     userScore += 1; // increment every time correct
     updateScore(); // call this every time we need to refresh the display
-    changeButtonColour(button, "green");
+    changeButtonColour(button, "#52B3D9");
   }
   if (isCorrect == false) {
-    changeButtonColour(button, "red");
+    changeButtonColour(button, "#F23535");
   }
 }
 
@@ -182,11 +182,16 @@ function updateScore() {
 }
 
 function nextQuestion() {
-  if (hasUserAnswered) {
-    displayQuestion((currentQuestion += 1));
-    hasUserAnswered = false;
-    resetButtonsStyle();
-    toggleNextButton();
+  if (currentQuestion < questionList.length - 1) {
+    if (hasUserAnswered) {
+      displayQuestion((currentQuestion += 1));
+      hasUserAnswered = false;
+      resetButtonsStyle();
+      toggleNextButton();
+    }
+  } else {
+    // load finish page here
+    console.log("the end");
   }
 }
 
