@@ -48,10 +48,7 @@ body {
     margin-bottom: 40px;
 }
 
-#answer1,
-#answer2,
-#answer3,
-#answer4 {
+.answerBtn {
     width: 100%;
     word-wrap: break-word;
     background: #FFF;
@@ -64,7 +61,7 @@ body {
     cursor: pointer;
 }
 
-#button {
+.next {
     padding: 15px 30px;
     margin-top: 20px;
     border-radius: 0.7em;
@@ -79,6 +76,6 @@ body {
     font-weight: 700;
 }
 
-#button:hover {
+.next:hover {
     opacity: 0.6;
 }

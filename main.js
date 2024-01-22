@@ -65,13 +65,77 @@ const questionList = [
       }),
     ],
   }),
+  (questionFour = {
+    question:
+      '4 How can you select an element with the ID "myElement" in JavaScript?',
+    answers: [
+      (a = {
+        content: "getElement('myElement')",
+        correct: false,
+      }),
+      (b = {
+        content: "document.getElementByName('myElement')",
+        correct: false,
+      }),
+      (c = {
+        content: "document.getElementById('myElement')",
+        correct: true,
+      }),
+      (d = {
+        content: "selectElement('myElement')",
+        correct: false,
+      }),
+    ],
+  }),
+  (questionFive = {
+    question:
+      "5 What method is used to retrieve the text content of an element in the DOM?",
+    answers: [
+      (a = {
+        content: "element.textContent",
+        correct: true,
+      }),
+      (b = {
+        content: "element.innerText",
+        correct: false,
+      }),
+      (c = {
+        content: "element.text",
+        correct: false,
+      }),
+      (d = {
+        content: "element.innerHTML",
+        correct: false,
+      }),
+    ],
+  }),
+  (questionSix = {
+    question:
+      '6 How do you attach a click event listener to an element with the ID "button"?',
+    answers: [
+      (a = {
+        content: "button.addEventListener('click', myFunction)",
+        correct: true,
+      }),
+      (b = {
+        content: "button.attachEvent('onclick', myFunction)",
+        correct: false,
+      }),
+      (c = {
+        content: "button.on('click', myFunction)",
+        correct: false,
+      }),
+      (d = {
+        content: "button.click(myFunction)",
+        correct: false,
+      }),
+    ],
+  }),
 ];
 
-console.log(questionList[0].answers[3].correct);
-
-function loadQuestion(i) {
-  return questionList[i];
-}
+let currentQuestion = 0;
+let hasUserAnswered = false;
+let userScore = 0;
 
 function displayQuestion(questionIndex) {
   document.getElementById("question").innerText =
@@ -86,24 +150,48 @@ function displayQuestion(questionIndex) {
     questionList[questionIndex].answers[3].content;
 }
 
-displayQuestion(2);
-
-function validateAnswer() {
-  let correct = questionList[0].answers[2].correct;
-  if ((correct = false)) {
-    return false;
+function validateAnswer(userAnswer) {
+  let isCorrect = questionList[currentQuestion].answers[userAnswer].correct;
+  hasUserAnswered = true;
+  console.log(isCorrect);
+  if (isCorrect) {
+    userScore += 1; // increment every time correct
+    updateScore(); // call this every time we need to refresh the display
   }
-  if ((correct = true)) {
-    return true;
-  }
-  return correct;
 }
 
-validateAnswer(0);
-console.log(correct + "if it is correct");
+function updateScore() {
+  scoreboardElement.innerText = userScore;
+}
+
+function changeButtonColour() {}
 
 function revealAnswer() {}
 
-function nextQuestion() {}
+function nextQuestion() {
+  if (hasUserAnswered) {
+    displayQuestion((currentQuestion += 1));
+    hasUserAnswered = false;
+  }
+}
 
-// console.log(questionList[questionIndex].answers[1].content);
+// App Running
+
+displayQuestion(currentQuestion);
+
+// Load next question when Next button is clicked
+const nextBtn = document.getElementById("next");
+nextBtn.addEventListener("click", nextQuestion);
+
+const answerButtons = document.getElementsByClassName("answerBtn");
+
+for (let i = 0; i < answerButtons.length; i++) {
+  answerButtons[i].addEventListener("click", function (e) {
+    if (hasUserAnswered == false) {
+      validateAnswer(i);
+    }
+  });
+}
+
+const scoreboardElement = document.getElementById("score");
+updateScore(userScore);

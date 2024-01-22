@@ -19,18 +19,19 @@
 <body>
     <div class="main-container">
         <div class="quiz-box">
-            <h1 class="title">QUIZ</h1>
+            <h1 class="title">QUIZ - Score: <span id="score"></span></h1>
             <div class="separator"></div>
             <p id="question">What method is used to select all elements with the class "nested" inside an element with
                 the
                 ID "parent"?</p>
 
-            <button id="answer1">document.getElements('.nested', '#parent')</button>
-            <button id="answer2">document.getElementById("parent").getElementsByClassName("nested")</button>
-            <button id="answer3">document.select('.nested', '#parent')</button>
-            <button id="answer4">document.getElementById('parent').find('.nested')</button>
+            <button class="answerBtn" id="answer1">document.getElements('.nested', '#parent')</button>
+            <button class="answerBtn"
+                id="answer2">document.getElementById("parent").getElementsByClassName("nested")</button>
+            <button class="answerBtn" id="answer3">document.select('.nested', '#parent')</button>
+            <button class="answerBtn" id="answer4">document.getElementById('parent').find('.nested')</button>
 
-            <button id="button">NEXT</button>
+            <button class="next" id="next">NEXT</button>
         </div>
     </div>
     <script src="main.js"></script>
