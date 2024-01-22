@@ -150,28 +150,49 @@ function displayQuestion(questionIndex) {
     questionList[questionIndex].answers[3].content;
 }
 
-function validateAnswer(userAnswer) {
+function validateAnswer(userAnswer, button) {
   let isCorrect = questionList[currentQuestion].answers[userAnswer].correct;
   hasUserAnswered = true;
+  toggleNextButton();
   console.log(isCorrect);
   if (isCorrect) {
     userScore += 1; // increment every time correct
     updateScore(); // call this every time we need to refresh the display
+    changeButtonColour(button, "green");
   }
+  if (isCorrect == false) {
+    changeButtonColour(button, "red");
+  }
+}
+
+function toggleNextButton() {
+  if (nextBtn.disabled) {
+    nextBtn.disabled = false;
+  } else {
+    nextBtn.disabled = true;
+  }
+}
+
+function changeButtonColour(element, colour) {
+  element.style.background = colour;
 }
 
 function updateScore() {
   scoreboardElement.innerText = userScore;
 }
 
-function changeButtonColour() {}
-
-function revealAnswer() {}
-
 function nextQuestion() {
   if (hasUserAnswered) {
     displayQuestion((currentQuestion += 1));
     hasUserAnswered = false;
+    resetButtonsStyle();
+    toggleNextButton();
+  }
+}
+
+function resetButtonsStyle() {
+  for (let i = 0; i < answerButtons.length; i++) {
+    answerButtons[i].style.background = "#FFFFFF";
   }
 }
 
@@ -188,7 +209,7 @@ const answerButtons = document.getElementsByClassName("answerBtn");
 for (let i = 0; i < answerButtons.length; i++) {
   answerButtons[i].addEventListener("click", function (e) {
     if (hasUserAnswered == false) {
-      validateAnswer(i);
+      validateAnswer(i, answerButtons[i]);
     }
   });
 }
