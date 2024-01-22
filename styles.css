@@ -81,4 +81,5 @@ body {
 }
 
 .next:disabled {
-    backgroun
+    background: gray;
+}
