@@ -249,10 +249,10 @@ function validateAnswer(userAnswer, button) {
   if (isCorrect) {
     userScore += 1; // increment every time correct
     updateScore(); // call this every time we need to refresh the display
-    changeButtonColour(button, "#52B3D9");
+    changeButtonStyle(button, "#65BFAF");
   }
   if (isCorrect == false) {
-    changeButtonColour(button, "#F23535");
+    changeButtonStyle(button, "#F23535");
   }
 }
 
@@ -264,8 +264,17 @@ function toggleNextButton() {
   }
 }
 
-function changeButtonColour(element, colour) {
+function changeButtonStyle(element, colour) {
   element.style.background = colour;
+  element.style.fontWeight = "600";
+  element.style.color = "white";
+  // element.style.borderColor = colour;
+  element.classList.add("nohover");
+  element.style.cursor = "default";
+  for (let i = 0; i < answerButtons.length; i++) {
+    answerButtons[i].classList.add("nohover");
+    answerButtons[i].style.cursor = "default";
+  }
 }
 
 function updateScore() {
@@ -277,10 +286,14 @@ function nextQuestion() {
     if (hasUserAnswered) {
       displayQuestion((currentQuestion += 1));
       hasUserAnswered = false;
-      resetButtonsStyle();
+      resetButtonsStyle(answerButtons);
       toggleNextButton();
     }
   } else {
+    document.getElementById("quiz-questions").style.display = "none";
+    document.getElementById("final-score").style.display = "block";
+    document.getElementById("final-score").innerText =
+      "Your final score is: " + userScore + "/" + questionList.length;
     // load finish page here
     console.log("the end");
   }
@@ -289,6 +302,10 @@ function nextQuestion() {
 function resetButtonsStyle() {
   for (let i = 0; i < answerButtons.length; i++) {
     answerButtons[i].style.background = "#FFFFFF";
+    answerButtons[i].style.fontWeight = "200";
+    answerButtons[i].style.color = "#000";
+    answerButtons[i].classList.remove("nohover");
+    answerButtons[i].style.cursor = "pointer";
   }
 }
 
